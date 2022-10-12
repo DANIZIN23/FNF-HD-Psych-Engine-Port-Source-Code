@@ -42,6 +42,7 @@ enum abstract Action(String) to String from String
 	var NOTE_UP_R = "note_up-release";
 	var NOTE_LEFT_R = "note_left-release";
 	var NOTE_RIGHT_R = "note_right-release";
+	var DODGE = "dodge";
 	var NOTE_DOWN_R = "note_down-release";
 	var ACCEPT = "accept";
 	var BACK = "back";
@@ -76,6 +77,7 @@ abstract Action(String) to String from String
 	var NOTE_LEFT_R = "note_left-release";
 	var NOTE_RIGHT_R = "note_right-release";
 	var NOTE_DOWN_R = "note_down-release";
+	var DODGE = "dodge";
 	var ACCEPT = "accept";
 	var BACK = "back";
 	var PAUSE = "pause";
@@ -105,6 +107,7 @@ enum Control
 	NOTE_RIGHT;
 	NOTE_DOWN;
 	RESET;
+	DODGE;
 	ACCEPT;
 	BACK;
 	PAUSE;
@@ -148,7 +151,8 @@ class Controls extends FlxActionSet
 	var _note_leftR = new FlxActionDigital(Action.NOTE_LEFT_R);
 	var _note_rightR = new FlxActionDigital(Action.NOTE_RIGHT_R);
 	var _note_downR = new FlxActionDigital(Action.NOTE_DOWN_R);
-	var _accept = new FlxActionDigital(Action.ACCEPT);
+	var _dodge = new FlxActionDigital(Action.DODGE);
+	var _accept = new FlxActionDigital(Action.ACCEPT); 
 	var _back = new FlxActionDigital(Action.BACK);
 	var _pause = new FlxActionDigital(Action.PAUSE);
 	var _reset = new FlxActionDigital(Action.RESET);
@@ -282,6 +286,11 @@ class Controls extends FlxActionSet
 	inline function get_NOTE_DOWN_R()
 		return _note_downR.check();
 
+	public var DODGE(get, never):Bool;
+	
+	inline function get_DODGE()
+	return _dodge.check();
+	
 	public var ACCEPT(get, never):Bool;
 
 	inline function get_ACCEPT()
