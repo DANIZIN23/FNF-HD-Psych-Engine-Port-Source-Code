@@ -1989,7 +1989,8 @@ class PlayState extends MusicBeatState
 
 		#if android
 		addAndroidControls();		
-		#end		
+		androidControls.visible = true;
+		#end				
 				
 		// if (SONG.song == 'South')	
 		// FlxG.camera.alpha = 0.7;
