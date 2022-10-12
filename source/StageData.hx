@@ -1,6 +1,6 @@
 package;
 
-#if MODS_ALLOWED
+#if windows 
 import sys.io.File;
 import sys.FileSystem;
 #else
@@ -88,7 +88,7 @@ class StageData {
 			path = Paths.getPreloadPath('stages old/' + stage + '.json');
 		}
 
-		#if MODS_ALLOWED
+		#if windows 
 		var modPath:String = null;
 		if(!ClientPrefs.OldHDbg) {
 			modPath = Paths.modFolders('stages/' + stage + '.json');
