@@ -23,7 +23,9 @@ enum abstract Action(String) to String from String
 	var UI_LEFT = "ui_left";
 	var UI_RIGHT = "ui_right";
 	var UI_DOWN = "ui_down";
-	var UI_UP_P = "ui_up-press";
+	var LEFT_P = "left-press
+	var RIGHT_P = "right-press";
+        var UI_UP_P = "ui_up-press";
 	var UI_LEFT_P = "ui_left-press";
 	var UI_RIGHT_P = "ui_right-press";
 	var UI_DOWN_P = "ui_down-press";
@@ -43,7 +45,8 @@ enum abstract Action(String) to String from String
 	var NOTE_LEFT_R = "note_left-release";
 	var NOTE_RIGHT_R = "note_right-release";
 	var NOTE_DOWN_R = "note_down-release";
-	var ACCEPT = "accept";
+	var DODGE = "dodge";
+        var ACCEPT = "accept";
 	var BACK = "back";
 	var PAUSE = "pause";
 	var RESET = "reset";
@@ -69,14 +72,17 @@ abstract Action(String) to String from String
 	var NOTE_RIGHT = "note_right";
 	var NOTE_DOWN = "note_down";
 	var NOTE_UP_P = "note_up-press";
-	var NOTE_LEFT_P = "note_left-press";
+	var LEFT_P = "left-press";
+        var RIGHT_P = "right-press";
+        var NOTE_LEFT_P = "note_left-press";
 	var NOTE_RIGHT_P = "note_right-press";
 	var NOTE_DOWN_P = "note_down-press";
 	var NOTE_UP_R = "note_up-release";
 	var NOTE_LEFT_R = "note_left-release";
 	var NOTE_RIGHT_R = "note_right-release";
 	var NOTE_DOWN_R = "note_down-release";
-	var ACCEPT = "accept";
+	var DODGE = "dodge";
+        var ACCEPT = "accept";
 	var BACK = "back";
 	var PAUSE = "pause";
 	var RESET = "reset";
@@ -104,7 +110,8 @@ enum Control
 	NOTE_LEFT;
 	NOTE_RIGHT;
 	NOTE_DOWN;
-	RESET;
+	DODGE;
+        RESET;
 	ACCEPT;
 	BACK;
 	PAUSE;
@@ -128,7 +135,9 @@ class Controls extends FlxActionSet
 	var _ui_left = new FlxActionDigital(Action.UI_LEFT);
 	var _ui_right = new FlxActionDigital(Action.UI_RIGHT);
 	var _ui_down = new FlxActionDigital(Action.UI_DOWN);
-	var _ui_upP = new FlxActionDigital(Action.UI_UP_P);
+	var _leftP = new FlxActionDigital(Action.LEFT_P);
+        var _rightP = new FlxActionDigital(Action.RIGHT_P);
+        var _ui_upP = new FlxActionDigital(Action.UI_UP_P);
 	var _ui_leftP = new FlxActionDigital(Action.UI_LEFT_P);
 	var _ui_rightP = new FlxActionDigital(Action.UI_RIGHT_P);
 	var _ui_downP = new FlxActionDigital(Action.UI_DOWN_P);
@@ -148,7 +157,8 @@ class Controls extends FlxActionSet
 	var _note_leftR = new FlxActionDigital(Action.NOTE_LEFT_R);
 	var _note_rightR = new FlxActionDigital(Action.NOTE_RIGHT_R);
 	var _note_downR = new FlxActionDigital(Action.NOTE_DOWN_R);
-	var _accept = new FlxActionDigital(Action.ACCEPT);
+	var _dodge = new FlxActionDigital(Action.DODGE);
+        var _accept = new FlxActionDigital(Action.ACCEPT);
 	var _back = new FlxActionDigital(Action.BACK);
 	var _pause = new FlxActionDigital(Action.PAUSE);
 	var _reset = new FlxActionDigital(Action.RESET);
@@ -282,7 +292,12 @@ class Controls extends FlxActionSet
 	inline function get_NOTE_DOWN_R()
 		return _note_downR.check();
 
-	public var ACCEPT(get, never):Bool;
+	public var DODGE(get, never):Bool;
+     
+        inline function get_DODGE()
+                return _dodge.check();
+       
+        public var ACCEPT(get, never):Bool;
 
 	inline function get_ACCEPT()
 		return _accept.check();
@@ -319,7 +334,8 @@ class Controls extends FlxActionSet
 		add(_ui_leftR);
 		add(_ui_rightR);
 		add(_ui_downR);
-		add(_note_up);
+		add(_dodge);
+                add(_note_up);
 		add(_note_left);
 		add(_note_right);
 		add(_note_down);
@@ -358,7 +374,8 @@ class Controls extends FlxActionSet
 		add(_ui_leftR);
 		add(_ui_rightR);
 		add(_ui_downR);
-		add(_note_up);
+		add(_dodge);
+                add(_note_up);
 		add(_note_left);
 		add(_note_right);
 		add(_note_down);
