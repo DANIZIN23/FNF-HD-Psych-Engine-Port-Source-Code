@@ -4534,9 +4534,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 		
-		#if android
-		androidControls.visible = true;
-		#end	
+		
 		timeBarBG.visible = false;
 		timeBar.visible = false;
 		timeTxt.visible = false;
