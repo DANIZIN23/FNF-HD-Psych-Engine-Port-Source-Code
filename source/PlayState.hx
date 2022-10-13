@@ -1987,9 +1987,9 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 
-		#if android
-		addAndroidControls();		
-		#end
+		
+				
+		
 						
 				
 		// if (SONG.song == 'South')	
@@ -1997,7 +1997,12 @@ class PlayState extends MusicBeatState
 		// UI_camera.zoom = 1;
 
 		// cameras = [FlxG.cameras.list[1]];
-		startingSong = true;
+		
+		#if android	
+		addAndroidControls();	
+		androidControls.visible = true;	
+				
+		startingSong = true;		
 
 		// SONG SPECIFIC SCRIPTS
 		#if LUA_ALLOWED
