@@ -1987,23 +1987,12 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 
-		
-				
-		
-						
-				
-		// if (SONG.song == 'South')	
+		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
 
 		// cameras = [FlxG.cameras.list[1]];
-		
-		#if android	
-		addAndroidControls();	
-		androidControls.visible = true;	
-		#end		
-		
-		startingSong = true;				
+		startingSong = true;
 
 		// SONG SPECIFIC SCRIPTS
 		#if LUA_ALLOWED
@@ -2854,7 +2843,7 @@ class PlayState extends MusicBeatState
 
 		var songName:String = Paths.formatToSongPath(SONG.song);
 		var file:String = Paths.json(songName + '/events');
-		#if MODS_ALLOWED
+		#if sys
 		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file)) {
 		#else
 		if (OpenFlAssets.exists(file)) {
@@ -4539,7 +4528,6 @@ class PlayState extends MusicBeatState
 				return;
 			}
 		}
-		
 		
 		timeBarBG.visible = false;
 		timeBar.visible = false;
