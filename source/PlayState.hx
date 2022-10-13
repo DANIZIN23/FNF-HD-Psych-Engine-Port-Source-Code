@@ -1992,7 +1992,13 @@ class PlayState extends MusicBeatState
 		// UI_camera.zoom = 1;
 
 		// cameras = [FlxG.cameras.list[1]];
-		startingSong = true;
+		
+		#if android		
+		addAndroidControls();		
+		androidControls.visible = true;	
+		#end		
+				
+			startingSong = true;
 
 		// SONG SPECIFIC SCRIPTS
 		#if LUA_ALLOWED
@@ -2843,7 +2849,7 @@ class PlayState extends MusicBeatState
 
 		var songName:String = Paths.formatToSongPath(SONG.song);
 		var file:String = Paths.json(songName + '/events');
-		#if sys
+		#if MODS_ALLOWED
 		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file)) {
 		#else
 		if (OpenFlAssets.exists(file)) {
