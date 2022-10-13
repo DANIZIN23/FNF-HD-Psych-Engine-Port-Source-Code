@@ -2001,8 +2001,9 @@ class PlayState extends MusicBeatState
 		#if android	
 		addAndroidControls();	
 		androidControls.visible = true;	
-				
-		startingSong = true;		
+		#end		
+		
+		startingSong = true;				
 
 		// SONG SPECIFIC SCRIPTS
 		#if LUA_ALLOWED
